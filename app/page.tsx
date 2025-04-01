@@ -9,6 +9,11 @@ const getPosts = cache(async () => {
       id: true,
       title: true,
       content: true,
+      author: {
+        select: {
+          name: true,
+        },
+      },
     },
   })
 })

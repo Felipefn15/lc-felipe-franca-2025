@@ -26,3 +26,15 @@ export const newPost = async ({ title, content, authorId }: NewPostParams) => {
 
   return post
 }
+
+
+export const getAuthors = async () => {
+  return await prisma.user.findMany({
+    select:{
+      name: true,
+      id: true
+    },
+    distinct: ['id']
+  })
+}
+
